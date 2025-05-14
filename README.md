@@ -9,7 +9,12 @@
 
 ## 📁 Структура проекта
 
-<pre> ```plaintext GodVNC/ ├── GodVNC/ # WinForms GUI приложение ├── GodVNC_agent/ # Фоновый агент ├── config.ini # Конфигурационный файл (подключение к БД) ├── README.md # Документация └── .gitignore ``` </pre>
+<pre> ```plaintext GodVNC/ 
+  ├── GodVNC/ # WinForms GUI приложение 
+  ├── GodVNC_agent/ # Фоновый агент 
+  ├── config.ini # Конфигурационный файл (подключение к БД) 
+  ├── README.md # Документация 
+  └── .gitignore ``` </pre>
 
 ---
 

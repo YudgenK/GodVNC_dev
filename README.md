@@ -9,7 +9,7 @@
 
 ## 📁 Структура проекта
 
-<pre> ```plaintext GodVNC/ 
+<pre> ``` GodVNC/ 
   ├── GodVNC/ # WinForms GUI приложение 
   ├── GodVNC_agent/ # Фоновый агент 
   ├── config.ini # Конфигурационный файл (подключение к БД) 
@@ -41,6 +41,7 @@ connectionString = Server=IPadress;port=3306;Database=godvnc;User Id=writer;Pass
 Для работы GodVNC необходима база данных MySQL или MariaDB с одной таблицей clients, которая хранит информацию о подключённых клиентах.
 
 📋 Таблица clients
+<pre>
 CREATE TABLE `clients` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `username` VARCHAR(100) NOT NULL,        -- Имя пользователя (например, krivoy.yura)
@@ -49,10 +50,13 @@ CREATE TABLE `clients` (
   `last_seen` DATETIME NOT NULL,           -- Время последнего запуска агента
   `online` BOOLEAN NOT NULL DEFAULT 1      -- Статус: online/offline
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  </pre>
 🔄 Поля username, ip_address, last_seen обновляются агентом каждый раз при запуске или перезапуске пользователя.
 
 🔐 Пользователи базы
 Рекомендуется создать отдельного пользователя базы данных с ограниченными правами, например:
+ <pre>
 CREATE USER 'writer'@'%' IDENTIFIED BY 'yourpassword';
 GRANT INSERT, UPDATE, SELECT ON godvnc.clients TO 'writer'@'%';
 FLUSH PRIVILEGES;
+ </pre>
